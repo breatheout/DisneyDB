@@ -1,0 +1,19 @@
+<div class="container" [@listAnimation]="response.data.length">
+  <h1>Disney Characters</h1>
+  <ul class="list-group">
+    <mat-card-title>
+      <a
+        *ngFor="let character of response.data"
+        [routerLink]="['/detail', character._id]"
+        class="
+          list-group-item list-group-item-action
+          animate__animated animate__bounce animate__fadeIn
+        "
+        >{{ character.name }}
+        <span *ngIf="character.films[0] != undefined"
+          >- {{ character.films[0] }}</span
+        ></a
+      ></mat-card-title
+    >
+  </ul>
+</div>
