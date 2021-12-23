@@ -1,0 +1,66 @@
+<div class="container mt-5">
+  <a class="btn btn-primary" routerLink="/">Back</a>
+  <h1 class="mt-5">
+    Character #<span>{{ detail._id }}</span>
+  </h1>
+
+  <div class="container d-flex justify-content-center">
+    <img
+      style="max-width: 80%; max-height: 80%"
+      src="{{ detail.imageUrl }}"
+      alt="portrait of character"
+    />
+  </div>
+
+  <div
+    *ngIf="detail"
+    class="row animate__animated animate__bounce animate__fadeIn"
+  >
+    <div class="container d-flex justify-content-center">
+      <mat-accordion>
+        <mat-expansion-panel
+          (opened)="panelOpenState = true"
+          (closed)="panelOpenState = false"
+        >
+          <mat-expansion-panel-header>
+            <mat-panel-title><b>Name: </b> {{ detail.name }}</mat-panel-title>
+          </mat-expansion-panel-header>
+          <p>
+            <b>Films: </b>
+            <span *ngIf="detail.films.length == 0">Unknown</span
+            >{{ detail.films }}
+          </p>
+          <p>
+            <b>Shorts: </b>
+            <span *ngIf="detail.shortFilms.length == 0">Unknown</span
+            >{{ detail.shortFilms }}
+          </p>
+          <p>
+            <b>TV: </b> <span *ngIf="detail.tvShows.length == 0">Unknown</span
+            >{{ detail.tvShows }}
+          </p>
+          <p>
+            <b>Videogames: </b>
+            <span *ngIf="detail.videoGames.length == 0">Unknown</span
+            >{{ detail.videoGames }}
+          </p>
+          <p>
+            <b>Park attractions: </b>
+            <span *ngIf="detail.parkAttractions.length == 0">Unknown</span
+            >{{ detail.parkAttractions }}
+          </p>
+          <p>
+            <b>Allies: </b>
+            <span *ngIf="detail.allies.length == 0">Unknown</span
+            >{{ detail.allies }}
+          </p>
+          <p>
+            <b>Enemies: </b>
+            <span *ngIf="detail.enemies.length == 0">Unknown</span
+            >{{ detail.enemies }}
+          </p>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+  </div>
+</div>
